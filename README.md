@@ -1,4 +1,4 @@
-[![Build and Push Docker Image to Docker Hub](https://github.com/martinSaav/infinity-math/actions/workflows/main.yml/badge.svg)](https://github.com/martinSaav/infinity-math/actions/workflows/main.yml)
+[![Build](https://github.com/martinSaav/infinity-math/actions/workflows/main.yml/badge.svg)](https://github.com/martinSaav/infinity-math/actions/workflows/main.yml)
 
 # InfinityMath
 
