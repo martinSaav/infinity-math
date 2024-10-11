@@ -34,12 +34,11 @@ module.exports = function (config) {
       ]
     },
     reporters: ['progress', 'kjhtml'],
-    //browsers: ['ChromeHeadless', 'Chrome'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: ['ChromeHeadless'], // Use ChromeHeadless for CI
+    browsers: ['ChromeHeadless', 'Chrome'], // Use ChromeHeadless for CI
     singleRun: true,
     restartOnFileChange: true
   });
