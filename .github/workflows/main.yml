@@ -1,15 +1,16 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+name: Build and Deploy
 
 on:
   push:
-    branches: [ "main", "dev" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main" , "dev"]
+    branches: [ "main"]
 
 jobs:
+
   build:
 
     runs-on: ubuntu-latest
@@ -33,4 +34,21 @@ jobs:
       run: npm run test:ci
     
     - name: Build
-      run: npm run build --if-present
+      run: npm run build:production --if-present
+
+  deploy:
+
+    needs: build  
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/infinity-math
+          branch: prod
+          token: ${{ secrets.GH_TOKEN }}
